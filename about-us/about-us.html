@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon • mendye.com</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #77a7dd, #284beb, #2b7be4);
+      color: white;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 800px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    h1 {
+      font-size: 62px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 30px rgba(0,0,0,0.4);
+    }
+
+    p {
+      font-size: 28px;
+      opacity: 0.95;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+
+    .back-home {
+      padding: 18px 50px;
+      background: #ffeb3b;
+      color: #0f5132;
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 60px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      transition: all 0.4s;
+      display: inline-block;
+    }
+
+    .back-home:hover {
+      transform: translateY(-10px) scale(1.08);
+      background: white;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+
+    .emoji {
+      font-size: 100px;
+      margin-bottom: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-20px); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 30px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="emoji">Under Construction</div>
+    <h1>Coming Soon</h1>
+    <p>This page is being crafted with love<br>and will be ready very shortly.</p>
+    
+    <!-- This line now correctly points to index.html -->
+    <a href="/" class="back-home">Back to Home</a>
+  </div>
+
+  <footer>
+    © 2025 mendye.com
+  </footer>
+
+</body>
+</html>
