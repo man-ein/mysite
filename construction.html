@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Construction • mendye.com</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #77a7dd, #284beb, #2b7be4);
+      color: white;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Big pulsing yellow circle */
+    .circle {
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, #ffeb3b, #fbc02d, #f9a825);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 50px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+      animation: pulse 3.5s infinite;
+    }
+
+    .emoji-big {
+      font-size: 110px;
+      line-height: 1;
+    }
+
+    .circle-title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    h1 {
+      font-size: 52px;
+      margin: 15px 0;
+      text-shadow: 0 0 30px rgba(221, 114, 72, 0.671);
+    }
+
+    .message {
+      font-size: 28px;
+      max-width: 800px;
+      opacity: 0.95;
+    }
+
+    .back-btn {
+      margin-top: 70px;
+      padding: 20px 50px;
+      font-size: 24px;
+      font-weight: bold;
+      background: #ffeb3b;
+      color: #0f5132;
+      border: none;
+      border-radius: 60px;
+      text-decoration: none;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-8px) scale(1.05);
+      background: white;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circle">
+    <div class="emoji-big">🚧</div>
+    <div class="circle-title">UNDER CONSTRUCTION</div>
+  </div>
+
+  <h1>This site is under construction</h1>
+  <div class="message">
+    We're working hard to make something awesome for you<br>
+    Thank you for your patience — see you very soon!
+  </div>
+
+  <a href="/" class="back-btn">Back to main page</a>
+
+</body>
+</html>
