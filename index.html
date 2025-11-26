@@ -3,84 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Site - Under Construction</title>
+  <title>talk. smarter - VoIP Solutions</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #0f2451, #194c87, #194c87);
-      font-family: 'Segoe UI', Arial, sans-serif;
-      color: white;
-      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
-    .circle {
-      width: 310px;
-      height: 310px;
-      background: radial-gradient(circle, #ffeb3b, #fbc02d, #f9a825);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      animation: pulse 4s infinite;
-      font-size: 28px;
+    h1 {
+      font-size: 3.5rem;
       font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-    }
-
-    @keyframes pulse {
-      0%   { transform: scale(1); }
-      50%  { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    .btn {
-      padding: 16px 32px;
-      margin: 12px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #155724;
-      background-color: #d4edda;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      min-width: 300px;
-      text-decoration: none;           /* important for <a> tags */
-      display: inline-block;
       text-align: center;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      text-transform: lowercase;
     }
 
-    .btn:hover {
-      background-color: #ffeb3b;
-      color: #0f5132;
-      transform: translateY(-4px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    .tagline {
+      font-size: 1.5rem;
+      text-align: center;
+      color: #7f8c8d;
+      margin-bottom: 40px;
     }
 
-    h2 { margin: 10px 0; font-size: 28px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
-    .small { font-size: 18px; opacity: 0.9; }
+    h2 {
+      font-size: 2.2rem;
+      color: #34495e;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    h4 {
+      font-size: 1.8rem;
+      color: #2980b9;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #bdc3c7;
+      margin: 40px 0;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: #2980b9;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #3498db;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+      h4 { font-size: 1.5rem; }
+      p { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="circle">Welcome!</div>
+  <header>
+    <h1>talk. smarter</h1>
+    <p class="tagline">VoIP solutions designed to fit the way you work.</p>
+  </header>
 
-  <h2>Welcome to my site!</h2>
-  <p class="small">This site is under construction</p>
+  <hr>
 
-  <!-- First button now links to welcome.html -->
-  <a href="welcome.html" class="btn">Welcome to my site! Click to Test</a>
+  <section>
+    <h2>Building connections that drive your business forward.</h2>
+    <p>Telernet delivers tailored VoIP solutions, both on-premise and cloud-based, to keep your business connected and productive. Our specialties include:</p>
+  </section>
 
-  <!-- Second button stays as a normal button (or you can link it later) -->
-  <a href="construction.html" class="btn">Under construction, Click to Test</a>
+  <section class="section">
+    <h4>Managed VoIP Services</h4>
+    <p>We handle everything so you can focus on what matters—your business. From setup to ongoing maintenance, our managed services ensure seamless communication without the hassle.</p>
+  </section>
+
+  <hr>
+
+  <section class="section">
+    <h2>training</h2>
+    <p>Personalized training for your team to maximize the potential of your VoIP system. We offer hands-on sessions tailored to your workflow, ensuring everyone is confident and efficient.</p>
+  </section>
+
+  <section class="section">
+    <h2>support</h2>
+    <p>24/7 support when you need it. Reach us via email, phone, or our 'Hot Key' instant access. Quick resolutions, no runaround—because downtime isn't an option.</p>
+  </section>
+
+  <section class="section">
+    <h2>additional services</h2>
+    <ul style="font-size: 1.1rem; padding-left: 20px;">
+      <li><strong>Full Omni-Channel Solutions:</strong> Integrate voice, chat, and email into one powerful platform.</li>
+      <li><strong>Advanced QM with Call Sentiment Analysis:</strong> Monitor calls in real-time with AI-driven insights to improve customer interactions.</li>
+    </ul>
+  </section>
+
+  <footer style="text-align: center; margin-top: 50px; color: #7f8c8d;">
+    <p>&copy; 2025 Telernet. All rights reserved. <a href="#">Contact Us</a></p>
+  </footer>
 
 </body>
 </html>
