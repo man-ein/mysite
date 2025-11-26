@@ -10,7 +10,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: #333;
-      background-color: #f8f9fa;
+      background-color: #f8f9fa; /* Light gray background */
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
@@ -21,7 +21,7 @@
       font-size: 3.5rem;
       font-weight: bold;
       text-align: center;
-      color: #2c3e50;
+      color: #2c3e50; /* Dark blue-gray for hero */
       margin-bottom: 10px;
       text-transform: lowercase;
     }
@@ -29,20 +29,20 @@
     .tagline {
       font-size: 1.5rem;
       text-align: center;
-      color: #7f8c8d;
+      color: #7f8c8d; /* Muted gray for tagline */
       margin-bottom: 40px;
     }
 
     h2 {
       font-size: 2.2rem;
-      color: #34495e;
+      color: #34495e; /* Medium blue-gray for sections */
       margin-top: 40px;
       margin-bottom: 15px;
     }
 
-    h4 {
+    h3 {
       font-size: 1.8rem;
-      color: #2980b9;
+      color: #2980b9; /* Bright blue for sub-services */
       margin-top: 30px;
       margin-bottom: 10px;
     }
@@ -54,7 +54,7 @@
 
     hr {
       border: none;
-      border-top: 1px solid #bdc3c7;
+      border-top: 1px solid #bdc3c7; /* Light gray divider */
       margin: 40px 0;
     }
 
@@ -62,14 +62,24 @@
       margin-bottom: 30px;
     }
 
+    ul {
+      font-size: 1.1rem;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
     a {
-      color: #2980b9;
+      color: #2980b9; /* Bright blue links */
       text-decoration: none;
       transition: color 0.3s;
     }
 
     a:hover {
-      color: #3498db;
+      color: #3498db; /* Lighter blue on hover */
     }
 
     /* Mobile responsiveness */
@@ -77,7 +87,7 @@
       body { padding: 10px; }
       h1 { font-size: 2.5rem; }
       h2 { font-size: 1.8rem; }
-      h4 { font-size: 1.5rem; }
+      h3 { font-size: 1.5rem; }
       p { font-size: 1rem; }
     }
   </style>
@@ -97,7 +107,7 @@
   </section>
 
   <section class="section">
-    <h4>Managed VoIP Services</h4>
+    <h3>Managed VoIP Services</h3>
     <p>We handle everything so you can focus on what matters—your business. From setup to ongoing maintenance, our managed services ensure seamless communication without the hassle.</p>
   </section>
 
@@ -115,14 +125,14 @@
 
   <section class="section">
     <h2>additional services</h2>
-    <ul style="font-size: 1.1rem; padding-left: 20px;">
+    <ul>
       <li><strong>Full Omni-Channel Solutions:</strong> Integrate voice, chat, and email into one powerful platform.</li>
       <li><strong>Advanced QM with Call Sentiment Analysis:</strong> Monitor calls in real-time with AI-driven insights to improve customer interactions.</li>
     </ul>
   </section>
 
-  <footer style="text-align: center; margin-top: 50px; color: #7f8c8d;">
-    <p>&copy; 2025 Telernet. All rights reserved. <a href="#">Contact Us</a></p>
+  <footer style="text-align: center; margin-top: 50px; color: #7f8c8d; font-size: 0.9rem;">
+    <p>&copy; 2025 Telernet. All rights reserved. <a href="mailto:info@telernet.com">Contact Us</a></p>
   </footer>
 
 </body>
