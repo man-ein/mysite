@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Site - Under Construction</title>
+  <style>
+    /* Full-screen centered layout */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1e3c72, #2a5298); /* fallback */
+      background: linear-gradient(135deg, #0f5132, #198754, #157347); /* nice green gradient */
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Big welcoming circle */
+    .circle {
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, #ffeb3b, #fbc02d, #f9a825); /* sunny yellow */
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      animation: pulse 4s infinite;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Buttons styling */
+    .btn {
+      padding: 16px 32px;
+      margin: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #155724;
+      background-color: #d4edda;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      min-width: 300px;
+    }
+
+    .btn:hover {
+      background-color: #ffeb3b;
+      color: #0f5132;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    h2 {
+      margin: 10px 0;
+      font-size: 28px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .small {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Big yellow circle with welcome text -->
+  <div class="circle">
+    Welcome!
+  </div>
+
+  <h2>Welcome to my site!</h2>
+  <p class="small">This site is under construction 🚧</p>
+
+  <!-- Buttons centered -->
+  <button class="btn">Welcome to my site!</button>
+  <button class="btn">This Site is under construction</button>
+
+</body>
+</html>
