@@ -5,162 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tools • mendye.com</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #77a7dd, #284beb, #2b7be4);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#77a7dd,#284beb,#2b7be4);color:white;min-height:100vh;display:flex;flex-direction:column}
+    header{background:rgba(0,0,0,0.4);padding:20px 40px;backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+    .header-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:28px;font-weight:bold;color:#ffeb3b;text-decoration:none;text-shadow:0 0 10px rgba(255,235,59,0.5)}
+    nav a{color:white;text-decoration:none;margin-left:30px;font-weight:500}
+    nav a:hover{color:#ffeb3b}
+
+    main{flex:1;padding:60px 20px;max-width:1200px;margin:0 auto;width:100%}
+    h1{text-align:center;font-size:56px;margin-bottom:60px;text-shadow:0 0 20px rgba(0,0,0,0.4)}
+
+    /* 3 columns on large screens, 2 on medium, 1 on small */
+    .tools-grid{
+      display:grid;
+      gap:36px;
+      grid-template-columns:repeat(3, 1fr);        /* 3 side-by-side */
+      justify-content:center;
     }
 
-    header {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px 40px;
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    .tool-card{
+      background:rgba(255,255,255,0.12);
+      backdrop-filter:blur(12px);
+      border-radius:24px;
+      padding:40px 24px;
+      text-align:center;
+      transition:all .4s;
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 15px 40px rgba(0,0,0,0.3);
     }
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .tool-card:hover{
+      transform:translateY(-16px);
+      background:rgba(255,235,59,0.15);
+      box-shadow:0 35px 80px rgba(255,235,59,0.3);
+      border-color:#ffeb3b;
     }
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #ffeb3b;
-      text-shadow: 0 0 10px rgba(255,235,59,0.5);
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #ffeb3b; }
+    .tool-card .emoji{font-size:68px;margin-bottom:16px}
+    .tool-card h3{font-size:24px;font-weight:600;margin:14px 10px;color:#ffeb3b}
+    .tool-card p{font-size:17px;opacity:0.92;margin-bottom:26px;line-height:1.5}
 
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
+    .tool-btn{
+      padding:16px 44px;background:#ffeb3b;color:#0f5132;font-weight:bold;
+      font-size:19px;text-decoration:none;border-radius:50px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);transition:all .4s;display:inline-block;
     }
+    .tool-btn:hover{background:white;transform:translateY(-6px)}
 
-    h1 {
-      font-size: 62px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 30px rgba(0,0,0,0.4);
+    .back-home{margin-top:90px;text-align:center}
+    .back-home a{
+      padding:18px 50px;background:#ffeb3b;color:#0f5132;font-size:22px;font-weight:bold;
+      text-decoration:none;border-radius:60px;box-shadow:0 12px 40px rgba(0,0,0,0.5);
+      transition:all .4s;display:inline-block;
     }
+    .back-home a:hover{transform:translateY(-10px) scale(1.08);background:white}
 
-    /* SINGLE CALCULATOR BUTTON */
-    .calculator-card {
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      padding: 50px 40px;
-      max-width: 500px;
-      width: 100%;
-      margin: 40px auto;
-      transition: all 0.4s ease;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    }
-    .calculator-card:hover {
-      transform: translateY(-15px);
-      background: rgba(255,235,59,0.15);
-      box-shadow: 0 35px 80px rgba(255,235,59,0.3);
-      border-color: #ffeb3b;
-    }
+    footer{background:rgba(0,0,0,0.6);padding:40px 20px;backdrop-filter:blur(10px);text-align:center}
+    .footer-links a{color:#ffeb3b;margin:0 20px;text-decoration:none}
+    .footer-links a:hover{text-decoration:underline;color:white}
+    .copyright{margin-top:12px;opacity:0.8;font-size:14px}
 
-    .calculator-card h3 {
-      font-size: 32px;
-      margin-bottom: 15px;
-      color: #ffeb3b;
+    /* Tablet: 2 columns */
+    @media (max-width: 992px) {
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
-    .calculator-card p {
-      font-size: 20px;
-      opacity: 0.9;
-      margin-bottom: 30px;
-      line-height: 1.5;
-    }
-
-    .calc-btn {
-      display: inline-block;
-      padding: 18px 60px;
-      background: #ffeb3b;
-      color: #0f5132;
-      font-weight: bold;
-      font-size: 22px;
-      text-decoration: none;
-      border-radius: 60px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-      transition: all 0.4s;
-    }
-    .calc-btn:hover {
-      background: white;
-      transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    }
-
-    .coming-more {
-      margin-top: 60px;
-      font-size: 24px;
-      opacity: 0.85;
-      font-style: italic;
-    }
-
-    .back-home {
-      margin-top: 70px;
-      padding: 18px 50px;
-      background: #ffeb3b;
-      color: #0f5132;
-      font-size: 22px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 60px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-      transition: all 0.4s;
-      display: inline-block;
-    }
-    .back-home:hover {
-      transform: translateY(-10px) scale(1.08);
-      background: white;
-    }
-
-    footer {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 40px 20px;
-      backdrop-filter: blur(10px);
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      text-align: center;
-    }
-    .footer-links a { color: #ffeb3b; text-decoration: none; margin: 0 20px; font-weight: 500; }
-    .footer-links a:hover { text-decoration: underline; color: white; }
-    .copyright { font-size: 14px; opacity: 0.8; }
-
-    @media (max-width: 768px) {
-      h1 { font-size: 48px; }
-      .calculator-card { padding: 40px 20px; }
-      .calc-btn { padding: 16px 50px; font-size: 20px; }
-      .coming-more { font-size: 20px; }
+    /* Mobile: 1 column */
+    @media (max-width: 600px) {
+      .tools-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 44px; }
     }
   </style>
 </head>
@@ -179,34 +90,59 @@
   </header>
 
   <main>
-    <h1>Tools</h1>
+    <h1>Useful Tools</h1>
 
-    <!-- ONLY CALCULATORS BUTTON -->
-    <div class="calculator-card">
-      <h3>Calculators</h3>
-      <p>Loan, mortgage, savings, investment, tax calculators & more</p>
-      <a href="/tools/calculators/" class="calc-btn">Open Calculators</a>
+    <div class="tools-grid">
+
+      <div class="tool-card">
+        <div class="emoji">Calculators</div>
+        <h3>Calculators</h3>
+        <p>Percentage, mortgage, loan, BMI, tip, and more</p>
+        <a href="/tools/calculators/" class="tool-btn">Open Calculators</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="emoji">Password</div>
+        <h3>Password Generator</h3>
+        <p>Create strong, random, secure passwords instantly</p>
+        <a href="/tools/password-generator/" class="tool-btn">Generate Password</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="emoji">QR Code</div>
+        <h3>QR Code Generator</h3>
+        <p>Turn any text or URL into a scannable QR code</p>
+        <a href="/tools/qr-code-generator/" class="tool-btn">Create QR Code</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="emoji">Unit Converter</div>
+        <h3>Unit Converter</h3>
+        <p>Length, weight, temperature, speed, volume, etc.</p>
+        <a href="/tools/unit-converter/" class="tool-btn">Convert Units</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="emoji">Rocket</div>
+        <h3>More Tools Coming Soon</h3>
+        <p>New powerful tools added weekly!</p>
+        <a href="/" class="tool-btn">Back to Home</a>
+      </div>
+
     </div>
 
-    <!-- MORE COMING SOON MESSAGE -->
-    <div class="coming-more">
-      More powerful tools coming very soon...
+    <div class="back-home">
+      <a href="/">Back to Home</a>
     </div>
-
-    <a href="/" class="back-home">Back to Home</a>
   </main>
 
   <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="/contact-us">Contact Us</a>
-        <a href="/terms-and-conditions">Terms & Conditions</a>
-        <a href="/privacy-policy">Privacy Policy</a>
-      </div>
-      <div class="copyright">
-        © 2025 mendye.com • All rights reserved.
-      </div>
+    <div class="footer-links">
+      <a href="/contact-us">Contact Us</a>
+      <a href="/terms-and-conditions">Terms & Conditions</a>
+      <a href="/privacy-policy">Privacy Policy</a>
     </div>
+    <div class="copyright">© 2025 mendye.com • All rights reserved.</div>
   </footer>
 
 </body>
