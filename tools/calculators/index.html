@@ -37,7 +37,6 @@
       text-shadow:0 0 30px rgba(0,0,0,0.4);
     }
 
-    /* 3 CARDS PER ROW - PERFECT SPACING */
     .calc-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -50,11 +49,15 @@
       background:rgba(255,255,255,0.15);
       backdrop-filter:blur(20px);
       border-radius:28px;
-      padding:45px 30px;
+      padding:50px 30px;
       text-align:center;
       border:2px solid rgba(255,255,255,0.1);
       box-shadow:0 20px 50px rgba(0,0,0,0.4);
       transition:all 0.5s ease;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
     }
     .calc-card:hover{
       transform:translateY(-20px);
@@ -63,20 +66,25 @@
       box-shadow:0 40px 90px rgba(255,235,59,0.5);
       border-color:#ffeb3b;
     }
-    .calc-card .emoji{
-      font-size:78px;
-      margin-bottom:20px;
+
+    /* Big beautiful icon */
+    .calc-icon{
+      font-size:82px;
+      margin-bottom:24px;
     }
+
     .calc-card h3{
-      font-size:27px;
+      font-size:28px;
       font-weight:700;
-      margin:16px 0 14px;
+      margin:0 0 16px 0;
+      line-height:1.2;
     }
     .calc-card p{
       font-size:18px;
       opacity:0.9;
-      margin-bottom:30px;
+      margin:0 0 32px 0;
       line-height:1.6;
+      flex-grow:1;
     }
     .calc-btn{
       padding:16px 50px;
@@ -138,7 +146,6 @@
       font-size:14px;
     }
 
-    /* RESPONSIVE: 2 on tablet, 1 on mobile */
     @media(max-width:1024px){
       .calc-grid{grid-template-columns:repeat(2,1fr); gap:35px}
     }
@@ -146,7 +153,8 @@
       .calc-grid{grid-template-columns:1fr; gap:30px}
       h1{font-size:44px; margin-bottom:50px}
       main{padding:130px 20px 80px}
-      .calc-card .emoji{font-size:65px}
+      .calc-icon{font-size:70px}
+      .calc-card h3{font-size:26px}
     }
   </style>
 </head>
@@ -168,44 +176,44 @@
     <div class="calc-grid">
 
       <div class="calc-card" onclick="location.href='/tools/calculators/regular-calculator'">
-        <div class="emoji">Calculator</div>
+        <div class="calc-icon">Regular</div>
         <h3>Regular Calculator</h3>
         <p>Basic math operations</p>
         <a href="/tools/calculators/regular-calculator" class="calc-btn">Open</a>
       </div>
 
       <div class="calc-card" onclick="location.href='/tools/calculators/percentage-calculator'">
-        <div class="emoji">Percentage</div>
+        <div class="calc-icon">Percentage</div>
         <h3>Percentage Calculator</h3>
         <p>X% of Y, increase, discount</p>
         <a href="/tools/calculators/percentage-calculator" class="calc-btn">Open</a>
       </div>
 
       <div class="calc-card" onclick="location.href='/tools/calculators/tip-calculator'">
-        <div class="emoji">Tip</div>
+        <div class="calc-icon">Tip</div>
         <h3>Tip Calculator</h3>
         <p>Split bills & add tip easily</p>
         <a href="/tools/calculators/tip-calculator" class="calc-btn">Open</a>
       </div>
 
       <div class="calc-card" onclick="location.href='/tools/calculators/bmi-calculator'">
-        <div class="emoji">BMI</div>
+        <div class="calc-icon">BMI</div>
         <h3>BMI Calculator</h3>
-        <p>Body Mass Index & category</p>
+        <p>Body Mass Index & health category</p>
         <a href="/tools/calculators/bmi-calculator" class="calc-btn">Open</a>
       </div>
 
       <div class="calc-card" onclick="location.href='/tools/calculators/loan-calculator'">
-        <div class="emoji">Loan</div>
+        <div class="calc-icon">Loan</div>
         <h3>Loan Calculator</h3>
-        <p>Monthly payments & interest</p>
+        <p>Monthly payments & total interest</p>
         <a href="/tools/calculators/loan-calculator" class="calc-btn">Open</a>
       </div>
 
       <div class="calc-card" onclick="location.href='/tools/calculators/mortgage-calculator'">
-        <div class="emoji">House</div>
+        <div class="calc-icon">House</div>
         <h3>Mortgage Calculator</h3>
-        <p>Home loan payments & total cost</p>
+        <p>Home loan payments & amortization</p>
         <a href="/tools/calculators/mortgage-calculator" class="calc-btn">Open</a>
       </div>
 
