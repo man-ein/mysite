@@ -5,163 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy • mendye.com</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #77a7dd, #284beb, #2b7be4);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* HEADER */
-    header {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px 40px;
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #ffeb3b;
-      text-shadow: 0 0 10px rgba(255,235,59,0.5);
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #ffeb3b; }
-
-    /* MAIN CONTENT */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .emoji {
-      font-size: 100px;
-      margin-bottom: 20px;
-      animation: float 4s ease-in-out infinite;
-    }
-    h1 {
-      font-size: 62px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 30px rgba(0,0,0,0.4);
-    }
-    p {
-      font-size: 28px;
-      max-width: 800px;
-      opacity: 0.95;
-      line-height: 1.5;
-      margin-bottom: 40px;
-    }
-    .back-home {
-      padding: 18px 50px;
-      background: #ffeb3b;
-      color: #0f5132;
-      font-size: 22px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 60px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-      transition: all 0.4s;
-      display: inline-block;
-    }
-    .back-home:hover {
-      transform: translateY(-10px) scale(1.08);
-      background: white;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-    }
-
-    /* FOOTER - EXACT SAME AS HOMEPAGE */
-    footer {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 40px 20px;
-      backdrop-filter: blur(10px);
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      text-align: center;
-    }
-    .footer-links a {
-      color: #ffeb3b;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: 500;
-      transition: all 0.3s;
-    }
-    .footer-links a:hover {
-      text-decoration: underline;
-      color: white;
-    }
-    .copyright {
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    /* ANIMATIONS */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .header-content { flex-direction: column; gap: 15px; }
-      nav a { margin: 0 15px; }
-      h1 { font-size: 48px; }
-      p { font-size: 24px; }
-      .footer-links a { display: block; margin: 10px 0; }
-    }
+    body{font-family:'Segoe UI',Arial,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.7;padding:140px 20px 100px;background:linear-gradient(135deg,#77a7dd,#284beb,#2b7be4);min-height:100vh}
+    header{background:rgba(0,0,0,0.4);padding:20px 40px;backdrop-filter:blur(10px);position:fixed;top:0;left:0;right:0;z-index:100}
+    .header-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:28px;font-weight:bold;color:#ffeb3b;text-decoration:none;text-shadow:0 0 10px rgba(255,235,59,0.5)}
+    nav a{color:white;text-decoration:none;margin-left:30px;font-weight:500}
+    nav a:hover{color:#ffeb3b}
+    .container{max-width:900px;margin:0 auto;background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);border-radius:20px;padding:50px;border:2px solid rgba(255,255,255,0.1);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+    h1{font-size:44px;text-align:center;margin-bottom:40px;color:#ffeb3b}
+    h2{margin-top:40px;font-size:26px;color:#ffeb3b}
+    p{margin:16px 0}
+    ul{margin:14px 0 14px 30px}
+    strong{color:#ffeb3b}
+    .back{margin:60px auto 0;text-align:center}
+    .back a{padding:16px 50px;background:#ffeb3b;color:#0f5132;font-weight:bold;border-radius:60px;text-decoration:none;display:inline-block}
+    .back a:hover{background:white;transform:scale(1.05)}
+    footer{margin-top:100px;text-align:center;opacity:0.8;font-size:14px}
   </style>
 </head>
 <body>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <h1>Privacy Policy</h1>
-    <div class="emoji">Coming Soon</div>
-    <p>This page is being crafted with love<br>and will be ready very shortly.</p>
-    <a href="/" class="back-home">Back to Home</a>
-  </main>
+<header>
+  <div class="header-content">
+    <a href="/" class="logo">mendye.com</a>
+    <nav><a href="/">Home</a><a href="/tools">Tools</a></nav>
+  </div>
+</header>
 
-  <!-- PERFECT FOOTER - SAME AS HOMEPAGE -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="/contact-us">Contact Us</a>
-        <a href="/terms-and-conditions">Terms & Conditions</a>
-        <a href="/privacy-policy">Privacy Policy</a>
-      </div>
-      <div class="copyright">
-        © 2025 mendye.com • All rights reserved.
-      </div>
-    </div>
-  </footer>
+<div class="container">
+  <h1>Privacy Policy</h1>
+  <p><strong>Last updated: November 27, 2025</strong></p>
+
+  <p>At <strong>mendye.com</strong>, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you visit our website or use our services, including SMS/text messaging programs.</p>
+
+  <h2>1. Information We Collect</h2>
+  <p>We may collect the following types of information:</p>
+  <ul>
+    <li><strong>Personal Information:</strong> Name, email address, phone number (when you opt-in to SMS), or any other information you voluntarily provide.</li>
+    <li><strong>Usage Data:</strong> IP address, browser type, pages visited, time spent on pages, and other diagnostic data.</li>
+    <li><strong>Cookies & Tracking:</strong> We use cookies and similar technologies to improve user experience and analyze traffic.</li>
+  </ul>
+
+  <h2>2. SMS / Text Message Marketing & Notifications (TCPA & CTIA Compliant)</h2>
+  <p>When you opt-in to receive SMS messages from mendye.com, you agree to receive recurring marketing and transactional text messages (including via automated technology) to the mobile number you provided.</p>
+  <p><strong>Message frequency varies.</strong> Message & data rates may apply.</p>
+  <p><strong>You can cancel the SMS service at any time.</strong> Simply text <strong>STOP</strong> to the short code or phone number that sent you the message. After this, you will receive one final message confirming your opt-out. You will no longer receive SMS messages from us.</p>
+  <p>To re-join, sign up as you did initially and we will start sending messages again.</p>
+  <p>If you need help, text <strong>HELP</strong> or contact us at support@mendye.com.</p>
+  <p>Carriers are not liable for delayed or undelivered messages.</p>
+  <p>Supported carriers include AT&T, Verizon, T-Mobile, Sprint, Boost, MetroPCS, U.S. Cellular, and others. Compatibility may vary.</p>
+
+  <h2>3. How We Use Your Information</h2>
+  <p>We use your information to:</p>
+  <ul>
+    <li>Provide and improve our services and tools</li>
+    <li>Send promotional SMS messages (only if you opt-in)</li>
+    <li>Respond to inquiries and provide support</li>
+    <li>Analyze usage and improve user experience</li>
+    <li>Comply with legal obligations</li>
+  </ul>
+
+ interior
+
+  <h2>4. Sharing Your Information</h2>
+  <p>We do not sell, rent, or share your personal information with third parties except:</p>
+  <ul>
+    <li>With trusted service providers (e.g., SMS platforms like Twilio) who assist in operating our service</li>
+    <li>When required by law or to protect our rights</li>
+  </ul>
+
+  <h2>5. Data Security</h2>
+  <p>We implement industry-standard security measures to protect your data. However, no method of transmission over the internet or electronic storage is 100% secure.</p>
+
+  <h2>6. Your Rights</h2>
+  <p>You have the right to:</p>
+  <ul>
+    <li>Access, correct, or delete your personal information</li>
+    <li>Opt-out of SMS messages at any time (see section 2)</li>
+    <li>Disable cookies in your browser settings</li>
+  </ul>
+
+  <h2>7. Children’s Privacy</h2>
+  <p>Our services are not intended for individuals under 13. We do not knowingly collect data from children.</p>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page with an updated "Last updated" date.</p>
+
+  <h2>9. Contact Us</h2>
+  <p>If you have any questions about this Privacy Policy or our SMS program, please contact us:</p>
+  <p>Email: <a href="mailto:support@mendye.com" style="color:#ffeb3b">support@mendye.com</a></p>
+
+  <div class="back">
+    <a href="/">Back to Home</a>
+  </div>
+</div>
+
+<footer>
+  © 2025 mendye.com • All rights reserved.
+</footer>
 
 </body>
 </html>
