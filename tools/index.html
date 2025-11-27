@@ -3,150 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mendye.com • Home</title>
+  <title>Useful Tools • mendye.com</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #77a7dd, #284beb, #2b7be4);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Segoe UI',Arial,sans-serif;
+      background:linear-gradient(135deg,#77a7dd,#284beb,#2b7be4);
+      color:white;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      padding:40px 20px;
+    }
+    header{
+      background:rgba(0,0,0,0.4);padding:20px 40px;backdrop-filter:blur(10px);
+      position:fixed;top:0;left:0;right:0;z-index:100;
+    }
+    .header-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:28px;font-weight:bold;color:#ffeb3b;text-decoration:none;text-shadow:0 0 10px rgba(255,235,59,0.5)}
+    nav a{color:white;text-decoration:none;margin-left:30px;font-weight:500}
+    nav a:hover{color:#ffeb3b}
+
+    h1{
+      margin:110px 0 60px;
+      font-size:56px;
+      text-align:center;
+      text-shadow:0 0 30px rgba(0,0,0,0.4);
     }
 
-    /* HEADER - fixed & clean */
-    header {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px 40px;
-      backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-    }
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #ffeb3b;
-      text-shadow: 0 0 10px rgba(255,235,59,0.5);
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #ffeb3b; }
-
-    /* MAIN CONTENT */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 140px 40px 80px;
-      gap: 32px;
-    }
-    .welcome {
-      font-size: 56px;
-      text-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-    .tagline {
-      font-size: 28px;
-      opacity: 0.9;
-      max-width: 800px;
+    .tools-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+      max-width:1200px;
+      margin:0 auto;
     }
 
-    /* SPINNING LOADER */
-    .loader svg {
-      width: 110px;
-      height: 110px;
-      animation: rotate 3s linear infinite;
+    .tool-card{
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(20px);
+      border-radius:25px;
+      padding:40px 30px;
+      text-align:center;
+      border:2px solid rgba(255,255,255,0.1);
+      box-shadow:0 20px 50px rgba(0,0,0,0.4);
+      transition:all 0.5s ease;
+      cursor:pointer;
     }
-    .loader circle {
-      fill: none;
-      stroke: #ffeb3b;
-      stroke-width: 8;
-      stroke-linecap: round;
-      stroke-dasharray: 250;
-      stroke-dashoffset: 50;
-      animation: dash 2s ease-in-out infinite;
+    .tool-card:hover{
+      transform:translateY(-15px) scale(1.05);
+      background:#ffeb3b;
+      color:#0f5132;
+      box-shadow:0 30px 70px rgba(255,235,59,0.5);
     }
-
-    /* BIG CALL-TO-ACTION */
-    .cta {
-      font-size: 52px;
-      font-weight: bold;
-      text-shadow: 0 0 20px rgba(0,0,0,0.5);
-      line-height: 1.2;
+    .tool-card h3{
+      font-size:28px;
+      margin-bottom:15px;
     }
-    .tools-btn {
-      padding: 20px 60px;
-      background: #ffeb3b;
-      color: #0f5132;
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 60px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-      transition: all 0.4s;
-      display: inline-block;
+    .tool-card p{
+      font-size:18px;
+      opacity:0.9;
+      margin-bottom:25px;
     }
-    .tools-btn:hover {
-      background: white;
-      transform: translateY(-8px) scale(1.05);
+    .tool-card .btn{
+      display:inline-block;
+      padding:14px 40px;
+      background:#ffeb3b;
+      color:#0f5132;
+      font-weight:bold;
+      font-size:18px;
+      border-radius:50px;
+      text-decoration:none;
+      transition:all 0.4s;
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
     }
-
-    @keyframes rotate { to { transform: rotate(360deg); } }
-    @keyframes dash {
-      0%   { stroke-dashoffset: 50; }
-      50%  { stroke-dashoffset: 250; }
-      100% { stroke-dashoffset: 50; }
+    .tool-card:hover .btn{
+      background:white;
+      transform:scale(1.1);
     }
 
-    /* FOOTER */
-    footer {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 40px 20px;
-      backdrop-filter: blur(10px);
-      text-align: center;
+    .back-home{margin:80px auto 0;text-align:center}
+    .back-home a{
+      padding:18px 50px;background:#ffeb3b;color:#0f5132;
+      font-size:22px;font-weight:bold;text-decoration:none;
+      border-radius:60px;box-shadow:0 12px 40px rgba(0,0,0,0.5);
+      transition:all .4s;display:inline-block;
     }
-    .footer-links a {
-      color: #ffeb3b;
-      text-decoration: none;
-      margin: 0 25px;
-      font-weight: 500;
-      font-size: 16px;
-    }
-    .footer-links a:hover {
-      text-decoration: underline;
-      color: white;
-    }
-    .copyright {
-      margin-top: 15px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
+    .back-home a:hover{transform:translateY(-10px) scale(1.08);background:white}
 
-    @media (max-width: 768px) {
-      main { padding: 120px 20px 60px; }
-      .welcome, .cta { font-size: 42px; }
-      .tagline { font-size: 24px; }
-      .tools-btn { font-size: 20px; padding: 16px 40px; }
-      .loader svg { width: 90px; height: 90px; }
-      nav a { margin-left: 20px; font-size: 15px; }
-      .footer-links a { display: block; margin: 12px 0; }
+    footer{margin-top:100px;text-align:center;opacity:0.8;font-size:14px}
+    .footer-links a{color:#ffeb3b;margin:0 20px;text-decoration:none}
+    .footer-links a:hover{text-decoration:underline}
+
+    @media(max-width:768px){
+      h1{font-size:42px;margin:100px 0 50px}
+      .tools-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -156,6 +107,7 @@
     <div class="header-content">
       <a href="/" class="logo">mendye.com</a>
       <nav>
+        <a href="/">Home</a>
         <a href="/about-us">About Us</a>
         <a href="/contact-us">Contact Us</a>
         <a href="/tools">Tools</a>
@@ -163,22 +115,39 @@
     </div>
   </header>
 
-  <main>
-    <h1 class="welcome">Welcome to mendye.com</h1>
-    <p class="tagline">Something amazing is coming very soon...</p>
+  <h1>Useful Tools</h1>
 
-    <div class="loader">
-      <svg viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="40"/>
-      </svg>
+  <div class="tools-grid">
+
+    <div class="tool-card" onclick="location.href='/tools/calculators'">
+      <h3>Calculators</h3>
+      <p>BMI, Tip, Loan, Age, Mortgage & more</p>
+      <a href="/tools/calculators" class="btn">Open Calculators</a>
     </div>
 
-    <div class="cta">
-      While it’s cooking,<br>check out our tools!
+    <div class="tool-card" onclick="location.href='/tools/password-generator'">
+      <h3>Password Generator</h3>
+      <p>Create strong, secure passwords instantly</p>
+      <a href="/tools/password-generator" class="btn">Generate Now</a>
     </div>
 
-    <a href="/tools" class="tools-btn">Explore Tools Now</a>
-  </main>
+    <div class="tool-card" onclick="location.href='/tools/qr-code-generator'">
+      <h3>QR Code Generator</h3>
+      <p>Make custom QR codes for links, text, WiFi</p>
+      <a href="/tools/qr-code-generator" class="btn">Create QR</a>
+    </div>
+
+    <div class="tool-card" onclick="location.href='/tools/unit-converter'">
+      <h3>Unit Converter</h3>
+      <p>Length, Weight, Temperature, Speed, Volume</p>
+      <a href="/tools/unit-converter" class="btn">Start Converting</a>
+    </div>
+
+  </div>
+
+  <div class="back-home">
+    <a href="/">Back to Home</a>
+  </div>
 
   <footer>
     <div class="footer-links">
@@ -186,7 +155,7 @@
       <a href="/terms-and-conditions">Terms & Conditions</a>
       <a href="/privacy-policy">Privacy Policy</a>
     </div>
-    <div class="copyright">© 2025 mendye.com • All rights reserved.</div>
+    <div>© 2025 mendye.com • All rights reserved.</div>
   </footer>
 
 </body>
