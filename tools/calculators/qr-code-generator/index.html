@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator • mendye.com</title>
+  <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Segoe UI',Arial,sans-serif;
+      background:linear-gradient(135deg,#77a7dd,#284beb,#2b7be4);
+      color:white;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:40px 20px;
+    }
+    header{
+      background:rgba(0,0,0,0.4);padding:20px 40px;backdrop-filter:blur(10px);
+      position:fixed;top:0;left:0;right:0;z-index:100;
+    }
+    .header-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:28px;font-weight:bold;color:#ffeb3b;text-decoration:none;text-shadow:0 0 10px rgba(255,235,59,0.5)}
+    nav a{color:white;text-decoration:none;margin-left:30px;font-weight:500}
+    nav a:hover{color:#ffeb3b}
+
+    h1{margin:100px 0 50px;font-size:52px;text-shadow:0 0 30px rgba(0,0,0,0.4);text-align:center}
+
+    .qr-container{
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(20px);
+      border-radius:30px;
+      padding:40px;
+      width:460px;
+      max-width:95%;
+      box-shadow:0 30px 80px rgba(0,0,0,0.5);
+      border:2px solid rgba(255,255,255,0.1);
+      text-align:center;
+    }
+    input[type="text"]{
+      width:100%;
+      padding:20px;
+      font-size:22px;
+      text-align:center;
+      border:none;
+      border-radius:18px;
+      background:rgba(255,255,255,0.2);
+      color:white;
+      margin-bottom:30px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    }
+    input::placeholder{color:rgba(255,255,255,0.7)}
+
+    #qrCanvas{
+      margin:0 auto 30px;
+      padding:20px;
+      background:white;
+      border-radius:20px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .buttons{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    button{
+      padding:22px;
+      font-size:22px;
+      font-weight:bold;
+      border:none;
+      border-radius:20px;
+      cursor:pointer;
+      transition:all 0.4s;
+      background:rgba(255,255,255,0.2);
+      color:white;
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    }
+    button:hover{
+      transform:translateY(-10px);
+      background:#ffeb3b;
+      color:#0f5132;
+      box-shadow:0 20px 50px rgba(255,235,59,0.4);
+    }
+    #downloadBtn{
+      background:#4caf50;
+    }
+    #downloadBtn:hover{
+      background:#66bb6a;
+    }
+
+    .back-home{margin-top:70px}
+    .back-home a{
+      padding:18px 50px;background:#ffeb3b;color:#0f5132;font-size:22px;font-weight:bold;
+      text-decoration:none;border-radius:60px;box-shadow:0 12px 40px rgba(0,0,0,0.5);
+      transition:all 0.4s;display:inline-block;
+    }
+    .back-home a:hover{transform:translateY(-10px) scale(1.08);background:white}
+
+    footer{margin-top:80px;text-align:center;opacity:0.8;font-size:14px}
+    .footer-links a{color:#ffeb3b;margin:0 15px;text-decoration:none}
+    .footer-links a:hover{text-decoration:underline}
+
+    @media(max-width:480px){
+      h1{font-size:42px}
+      .qr-container{padding:30px}
+      #qrCanvas{width:240px!important;height:240px!important}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">mendye.com</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/tools">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <h1>QR Code Generator</h1>
+
+  <div class="qr-container">
+    <input type="text" id="text" placeholder="Enter text or URL here..." value="https://mendye.com">
+
+    <div id="qrCanvas"></div>
+
+    <div class="buttons">
+      <button onclick="generateQR()">Generate QR Code</button>
+      <button id="downloadBtn" onclick="downloadQR()">Download PNG</button>
+    </div>
+  </div>
+
+  <div class="back-home">
+    <a href="/tools">Back to Tools</a>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/contact-us">Contact Us</a>
+      <a href="/terms-and-conditions">Terms & Conditions</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+    </div>
+    <div>© 2025 mendye.com • All rights reserved.</div>
+  </footer>
+
+  <script>
+    const qrCode = new QRCodeStyling({
+      width: 300,
+      height: 300,
+      data: "https://mendye.com",
+      margin: 0,
+      qrOptions: { errorCorrectionLevel: "H" },
+      imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 10 },
+      dotsOptions: { type: "rounded", color: "#0f5132" },
+      backgroundOptions: { color: "#ffffff" },
+      cornersSquareOptions: { type: "extra-rounded", color: "#0f5132" },
+      cornersDotOptions: { type: "dot", color: "#0f5132" }
+    });
+
+    qrCode.append(document.getElementById("qrCanvas"));
+
+    function generateQR() {
+      const text = document.getElementById("text").value.trim();
+      if (!text) {
+        alert("Please enter some text or URL!");
+        return;
+      }
+      qrCode.update({ data: text });
+    }
+
+    function downloadQR() {
+      qrCode.download({ name: "qr-code", extension: "png" });
+    }
+
+    // Auto-generate on input
+    document.getElementById("text").addEventListener("input", generateQR);
+
+    // Generate on page load
+    generateQR();
+  </script>
+
+</body>
+</html>
