@@ -15,13 +15,13 @@
       flex-direction: column;
     }
 
-    /* ===== HEADER ===== */
+    /* HEADER - now properly fixed */
     header {
       background: rgba(0, 0, 0, 0.4);
       padding: 20px 40px;
       backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
+      position: fixed;
+      top: 0; left: 0; right: 0;
       z-index: 100;
     }
     .header-content {
@@ -47,7 +47,7 @@
     }
     nav a:hover { color: #ffeb3b; }
 
-    /* ===== MAIN CONTENT ===== */
+    /* MAIN CONTENT - now starts below fixed header */
     main {
       flex: 1;
       display: flex;
@@ -55,27 +55,23 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 40px;
+      padding: 140px 40px 80px;   /* ← This fixes the overlap */
+      gap: 32px;
     }
     .welcome {
       font-size: 56px;
-      margin-bottom: 20px;
       text-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
     .tagline {
       font-size: 28px;
       opacity: 0.9;
       max-width: 800px;
-      margin-bottom: 40px;
     }
 
-    /* ===== INFINITE SPINNING LOADER (COOL!) ===== */
-    .loader {
-      margin-top: 20px;
-    }
+    /* SPINNING LOADER */
     .loader svg {
-      width: 100px;
-      height: 100px;
+      width: 110px;
+      height: 110px;
       animation: rotate 3s linear infinite;
     }
     .loader circle {
@@ -85,112 +81,102 @@
       stroke-linecap: round;
       stroke-dasharray: 250;
       stroke-dashoffset: 50;
-      transform-origin: center;
       animation: dash 2s ease-in-out infinite;
     }
-    .loader-text {
-      margin-top: 20px;
-      font-size: 18px;
-      opacity: 0.9;
-      animation: pulse 2s infinite;
+
+    /* BIG CALL-TO-ACTION */
+    .cta {
+      font-size: 52px;
+      font-weight: bold;
+      text-shadow: 0 0 20px rgba(0,0,0,0.5);
+      line-height: 1.2;
+    }
+    .tools-btn {
+      padding: 20px 60px;
+      background: #ffeb3b;
+      color: #0f5132;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 60px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      transition: all 0.4s;
+      display: inline-block;
+    }
+    .tools-btn:hover {
+      background: white;
+      transform: translateY(-8px) scale(1.05);
     }
 
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
+    @keyframes rotate { to { transform: rotate(360deg); } }
     @keyframes dash {
       0%   { stroke-dashoffset: 50; }
       50%  { stroke-dashoffset: 250; }
       100% { stroke-dashoffset: 50; }
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.6; }
-      50%      { opacity: 1; }
-    }
 
-    /* ===== FOOTER ===== */
+    /* FOOTER */
     footer {
       background: rgba(0, 0, 0, 0.6);
       padding: 40px 20px;
       backdrop-filter: blur(10px);
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+      text-align: center;
     }
     .footer-links a {
       color: #ffeb3b;
       text-decoration: none;
       margin: 0 20px;
       font-weight: 500;
-      transition: all 0.3s;
     }
-    .footer-links a:hover {
-      text-decoration: underline;
-      color: white;
-    }
-    .copyright {
-      font-size: 14px;
-      opacity: 0.8;
-    }
+    .footer-links a:hover { text-decoration: underline; color: white; }
+    .copyright { margin-top: 15px; font-size: 14px; opacity: 0.8; }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      .header-content { flex-direction: column; gap: 15px; }
-      nav a { margin: 0 15px; }
-      .welcome { font-size: 42px; }
+      main { padding: 120px 20px 60px; }
+      .welcome, .cta { font-size: 42px; }
       .tagline { font-size: 24px; }
-      .loader svg { width: 80px; height: 80px; }
-      .footer-links a { display: block; margin: 10px 0; }
+      .tools-btn { font-size: 20px; padding: 16px 40px; }
+      .loader svg { width: 90px; height: 90px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="header-content">
       <a href="/" class="logo">mendye.com</a>
       <nav>
         <a href="/">Home</a>
-        <a href="/about-us">About Us</a>
-        <a href="/contact-us">Contact Us</a>
         <a href="/tools">Tools</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-and-conditions">Terms & Conditions</a>
       </nav>
     </div>
   </header>
 
-  <!-- MAIN CONTENT WITH COOL SPINNER -->
   <main>
     <h1 class="welcome">Welcome to mendye.com</h1>
     <p class="tagline">Something amazing is coming very soon...</p>
 
-    <!-- INFINITE SPINNING LOADER -->
     <div class="loader">
       <svg viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="40" />
+        <circle cx="50" cy="50" r="40"/>
       </svg>
-      <div class="loader-text">Loading magic...</div>
     </div>
+
+    <div class="cta">
+      While it’s cooking,<br>check out our tools!
+    </div>
+
+    <a href="/tools" class="tools-btn">Explore Tools Now</a>
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="/contact-us">Contact Us</a>
-        <a href="/terms-and-conditions">Terms & Conditions</a>
-        <a href="/privacy-policy">Privacy Policy</a>
-      </div>
-      <div class="copyright">
-        © 2025 mendye.com • All rights reserved.
-      </div>
+    <div class="footer-links">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms-and-conditions">Terms & Conditions</a>
     </div>
+    <div class="copyright">© 2025 mendye.com • All rights reserved.</div>
   </footer>
 
 </body>
