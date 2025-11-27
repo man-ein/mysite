@@ -15,7 +15,7 @@
       flex-direction: column;
     }
 
-    /* HEADER - now properly fixed */
+    /* HEADER - fixed & clean */
     header {
       background: rgba(0, 0, 0, 0.4);
       padding: 20px 40px;
@@ -47,7 +47,7 @@
     }
     nav a:hover { color: #ffeb3b; }
 
-    /* MAIN CONTENT - now starts below fixed header */
+    /* MAIN CONTENT */
     main {
       flex: 1;
       display: flex;
@@ -55,7 +55,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 140px 40px 80px;   /* ← This fixes the overlap */
+      padding: 140px 40px 80px;
       gap: 32px;
     }
     .welcome {
@@ -125,11 +125,19 @@
     .footer-links a {
       color: #ffeb3b;
       text-decoration: none;
-      margin: 0 20px;
+      margin: 0 25px;
       font-weight: 500;
+      font-size: 16px;
     }
-    .footer-links a:hover { text-decoration: underline; color: white; }
-    .copyright { margin-top: 15px; font-size: 14px; opacity: 0.8; }
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+    .copyright {
+      margin-top: 15px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
 
     @media (max-width: 768px) {
       main { padding: 120px 20px 60px; }
@@ -137,6 +145,8 @@
       .tagline { font-size: 24px; }
       .tools-btn { font-size: 20px; padding: 16px 40px; }
       .loader svg { width: 90px; height: 90px; }
+      nav a { margin-left: 20px; font-size: 15px; }
+      .footer-links a { display: block; margin: 12px 0; }
     }
   </style>
 </head>
@@ -146,10 +156,9 @@
     <div class="header-content">
       <a href="/" class="logo">mendye.com</a>
       <nav>
-        <a href="/">Home</a>
+        <a href="/about-us">About Us</a>
+        <a href="/contact-us">Contact Us</a>
         <a href="/tools">Tools</a>
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/terms-and-conditions">Terms & Conditions</a>
       </nav>
     </div>
   </header>
@@ -173,8 +182,9 @@
 
   <footer>
     <div class="footer-links">
-      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/contact-us">Contact Us</a>
       <a href="/terms-and-conditions">Terms & Conditions</a>
+      <a href="/privacy-policy">Privacy Policy</a>
     </div>
     <div class="copyright">© 2025 mendye.com • All rights reserved.</div>
   </footer>
