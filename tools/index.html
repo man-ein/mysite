@@ -15,7 +15,6 @@
       flex-direction: column;
     }
 
-    /* HEADER */
     header {
       background: rgba(0, 0, 0, 0.4);
       padding: 20px 40px;
@@ -47,7 +46,6 @@
     }
     nav a:hover { color: #ffeb3b; }
 
-    /* MAIN CONTENT */
     main {
       flex: 1;
       display: flex;
@@ -57,24 +55,73 @@
       text-align: center;
       padding: 40px 20px;
     }
-    .emoji {
-      font-size: 100px;
-      margin-bottom: 20px;
-      animation: float 4s ease-in-out infinite;
-    }
+
     h1 {
       font-size: 62px;
       margin-bottom: 20px;
       text-shadow: 0 0 30px rgba(0,0,0,0.4);
     }
-    p {
-      font-size: 28px;
-      max-width: 800px;
-      opacity: 0.95;
-      line-height: 1.5;
-      margin-bottom: 40px;
+
+    /* SINGLE CALCULATOR BUTTON */
+    .calculator-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 50px 40px;
+      max-width: 500px;
+      width: 100%;
+      margin: 40px auto;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     }
+    .calculator-card:hover {
+      transform: translateY(-15px);
+      background: rgba(255,235,59,0.15);
+      box-shadow: 0 35px 80px rgba(255,235,59,0.3);
+      border-color: #ffeb3b;
+    }
+
+    .calculator-card h3 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #ffeb3b;
+    }
+
+    .calculator-card p {
+      font-size: 20px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .calc-btn {
+      display: inline-block;
+      padding: 18px 60px;
+      background: #ffeb3b;
+      color: #0f5132;
+      font-weight: bold;
+      font-size: 22px;
+      text-decoration: none;
+      border-radius: 60px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      transition: all 0.4s;
+    }
+    .calc-btn:hover {
+      background: white;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .coming-more {
+      margin-top: 60px;
+      font-size: 24px;
+      opacity: 0.85;
+      font-style: italic;
+    }
+
     .back-home {
+      margin-top: 70px;
       padding: 18px 50px;
       background: #ffeb3b;
       color: #0f5132;
@@ -89,10 +136,8 @@
     .back-home:hover {
       transform: translateY(-10px) scale(1.08);
       background: white;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
     }
 
-    /* FOOTER - EXACT SAME AS HOMEPAGE */
     footer {
       background: rgba(0, 0, 0, 0.6);
       padding: 40px 20px;
@@ -107,49 +152,50 @@
       gap: 20px;
       text-align: center;
     }
-    .footer-links a {
-      color: #ffeb3b;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: 500;
-      transition: all 0.3s;
-    }
-    .footer-links a:hover {
-      text-decoration: underline;
-      color: white;
-    }
-    .copyright {
-      font-size: 14px;
-      opacity: 0.8;
-    }
+    .footer-links a { color: #ffeb3b; text-decoration: none; margin: 0 20px; font-weight: 500; }
+    .footer-links a:hover { text-decoration: underline; color: white; }
+    .copyright { font-size: 14px; opacity: 0.8; }
 
-    /* ANIMATIONS */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .header-content { flex-direction: column; gap: 15px; }
-      nav a { margin: 0 15px; }
       h1 { font-size: 48px; }
-      p { font-size: 24px; }
-      .footer-links a { display: block; margin: 10px 0; }
+      .calculator-card { padding: 40px 20px; }
+      .calc-btn { padding: 16px 50px; font-size: 20px; }
+      .coming-more { font-size: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- MAIN CONTENT -->
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">mendye.com</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about-us">About Us</a>
+        <a href="/contact-us">Contact Us</a>
+        <a href="/tools">Tools</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
     <h1>Tools</h1>
-    <div class="emoji">Coming Soon</div>
-    <p>This page is being crafted with love<br>and will be ready very shortly.</p>
+
+    <!-- ONLY CALCULATORS BUTTON -->
+    <div class="calculator-card">
+      <h3>Calculators</h3>
+      <p>Loan, mortgage, savings, investment, tax calculators & more</p>
+      <a href="/tools/calculators/" class="calc-btn">Open Calculators</a>
+    </div>
+
+    <!-- MORE COMING SOON MESSAGE -->
+    <div class="coming-more">
+      More powerful tools coming very soon...
+    </div>
+
     <a href="/" class="back-home">Back to Home</a>
   </main>
 
-  <!-- PERFECT FOOTER - SAME AS HOMEPAGE -->
   <footer>
     <div class="footer-content">
       <div class="footer-links">
