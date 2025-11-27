@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us • mendye.com</title> <!-- Change title for each page -->
+  <title>Privacy Policy • mendye.com</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -14,6 +14,7 @@
       display: flex;
       flex-direction: column;
     }
+
     /* HEADER */
     header {
       background: rgba(0, 0, 0, 0.4);
@@ -30,47 +31,137 @@
       justify-content: space-between;
       align-items: center;
     }
-    .logo { font-size: 28px; font-weight: bold; text-decoration: none; color: #ffeb3b; text-shadow: 0 0 10px rgba(255,235,59,0.5); }
-    nav a { color: white; text-decoration: none; margin-left: 30px; font-weight: 500; transition: color 0.3s; }
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #ffeb3b;
+      text-shadow: 0 0 10px rgba(255,235,59,0.5);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
     nav a:hover { color: #ffeb3b; }
+
     /* MAIN CONTENT */
-    main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px; }
-    /* FOOTER */
-    footer { background: rgba(0, 0, 0, 0.6); padding: 40px 20px; backdrop-filter: blur(10px); }
-    .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .footer-links a { color: #ffeb3b; text-decoration: none; margin: 0 20px; font-weight: 500; }
-    .footer-links a:hover { text-decoration: underline; color: white; }
-    .copyright { font-size: 14px; opacity: 0.8; }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .emoji {
+      font-size: 100px;
+      margin-bottom: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
+    h1 {
+      font-size: 62px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 30px rgba(0,0,0,0.4);
+    }
+    p {
+      font-size: 28px;
+      max-width: 800px;
+      opacity: 0.95;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+    .back-home {
+      padding: 18px 50px;
+      background: #ffeb3b;
+      color: #0f5132;
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 60px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      transition: all 0.4s;
+      display: inline-block;
+    }
+    .back-home:hover {
+      transform: translateY(-10px) scale(1.08);
+      background: white;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+
+    /* FOOTER - EXACT SAME AS HOMEPAGE */
+    footer {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px 20px;
+      backdrop-filter: blur(10px);
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+    .footer-links a {
+      color: #ffeb3b;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+    .copyright {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* ANIMATIONS */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .header-content { flex-direction: column; gap: 15px; }
       nav a { margin: 0 15px; }
+      h1 { font-size: 48px; }
+      p { font-size: 24px; }
       .footer-links a { display: block; margin: 10px 0; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="emoji">Under Construction</div>
-    <h1>Coming Soon</h1>
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="emoji">Coming Soon</div>
+    <h1>Under Construction</h1>
     <p>This page is being crafted with love<br>and will be ready very shortly.</p>
-    
-    <!-- This line now correctly points to index.html -->
     <a href="/" class="back-home">Back to Home</a>
-  </div>
+  </main>
 
-<footer>
-  <div class="footer-content">
-    <div class="footer-links">
-      <a href="/contact-us">Contact Us</a>
-      <a href="/terms-and-conditions">Terms & Conditions</a>
-      <a href="/privacy-policy">Privacy Policy</a>
+  <!-- PERFECT FOOTER - SAME AS HOMEPAGE -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="/contact-us">Contact Us</a>
+        <a href="/terms-and-conditions">Terms & Conditions</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+      </div>
+      <div class="copyright">
+        © 2025 mendye.com • All rights reserved.
+      </div>
     </div>
-    <div class="copyright">
-      © 2025 mendye.com • All rights reserved.
-    </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
