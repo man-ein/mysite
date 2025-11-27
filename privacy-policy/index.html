@@ -3,81 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon • mendye.com</title>
+  <title>Contact Us • mendye.com</title> <!-- Change title for each page -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
       background: linear-gradient(135deg, #77a7dd, #284beb, #2b7be4);
       color: white;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+    }
+    /* HEADER */
+    header {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px 40px;
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      text-align: center;
-      overflow: hidden;
     }
-
-    .container {
-      padding: 40px;
-      max-width: 800px;
-      animation: fadeInUp 1.2s ease-out;
-    }
-
-    h1 {
-      font-size: 62px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 30px rgba(0,0,0,0.4);
-    }
-
-    p {
-      font-size: 28px;
-      opacity: 0.95;
-      margin-bottom: 40px;
-      line-height: 1.5;
-    }
-
-    .back-home {
-      padding: 18px 50px;
-      background: #ffeb3b;
-      color: #0f5132;
-      font-size: 22px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 60px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-      transition: all 0.4s;
-      display: inline-block;
-    }
-
-    .back-home:hover {
-      transform: translateY(-10px) scale(1.08);
-      background: white;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-    }
-
-    .emoji {
-      font-size: 100px;
-      margin-bottom: 20px;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-20px); }
-    }
-
-    footer {
-      position: absolute;
-      bottom: 30px;
-      font-size: 14px;
-      opacity: 0.7;
+    .logo { font-size: 28px; font-weight: bold; text-decoration: none; color: #ffeb3b; text-shadow: 0 0 10px rgba(255,235,59,0.5); }
+    nav a { color: white; text-decoration: none; margin-left: 30px; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #ffeb3b; }
+    /* MAIN CONTENT */
+    main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px; }
+    /* FOOTER */
+    footer { background: rgba(0, 0, 0, 0.6); padding: 40px 20px; backdrop-filter: blur(10px); }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .footer-links a { color: #ffeb3b; text-decoration: none; margin: 0 20px; font-weight: 500; }
+    .footer-links a:hover { text-decoration: underline; color: white; }
+    .copyright { font-size: 14px; opacity: 0.8; }
+    @media (max-width: 768px) {
+      .header-content { flex-direction: column; gap: 15px; }
+      nav a { margin: 0 15px; }
+      .footer-links a { display: block; margin: 10px 0; }
     }
   </style>
 </head>
@@ -92,19 +59,18 @@
     <a href="/" class="back-home">Back to Home</a>
   </div>
 
-  <!-- FOOTER - Legal links stay here -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="contact-us">Contact Us</a>
-        <a href="terms-and-conditions">Terms & Conditions</a>
-        <a href="privacy-policy">Privacy Policy</a>
-      </div>
-      <div class="copyright">
-        © 2025 mendye.com • All rights reserved.
-      </div>
+<footer>
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="/contact-us">Contact Us</a>
+      <a href="/terms-and-conditions">Terms & Conditions</a>
+      <a href="/privacy-policy">Privacy Policy</a>
     </div>
-  </footer>
+    <div class="copyright">
+      © 2025 mendye.com • All rights reserved.
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
