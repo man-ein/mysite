@@ -76,12 +76,10 @@
     input::placeholder{color:rgba(255,255,255,0.7)}
     input:focus{outline:none;background:rgba(255,255,255,0.3);box-shadow:0 0 20px rgba(255,235,59,0.4)}
 
-    /* Imperial: two inputs side-by-side */
     .imperial-height{
       display:flex;
       gap:15px;
       justify-content:center;
-      align-items:center;
       max-width:400px;
       margin:0 auto;
     }
@@ -196,10 +194,10 @@
 
       <!-- Height Input -->
       <div class="input-group">
-        <label id="height-label">Height (cm)</label>
-        <input type="number" id="height-cm" placeholder="e.g. 175" step="0.1">
+        <label id="height-label">Height</label>
+        <input type="number" id="height-cm" placeholder="e.g. 175" step="0.1" style="display:none;">
 
-        <div class="imperial-height" id="imperial-inputs" style="display:none;">
+        <div class="imperial-height" id="imperial-inputs">
           <input type="number" id="feet" placeholder="Feet" step="1">
           <input type="number" id="inches" placeholder="Inches" step="0.1">
         </div>
@@ -207,14 +205,14 @@
 
       <!-- Weight Input -->
       <div class="input-group">
-        <label id="weight-label">Weight (kg)</label>
-        <input type="number" id="weight" placeholder="e.g. 70" step="0.1">
+        <label id="weight-label">Weight (lbs)</label>
+        <input type="number" id="weight" placeholder="e.g. 154" step="0.1">
       </div>
 
       <!-- Unit Toggle -->
       <div class="unit-toggle">
-        <div class="toggle-btn active" onclick="setUnit('metric')">Metric</div>
-        <div class="toggle-btn" onclick="setUnit('imperial')">Imperial</div>
+        <div class="toggle-btn" onclick="setUnit('metric')">Metric</div>
+        <div class="toggle-btn active" onclick="setUnit('imperial')">Imperial</div>
       </div>
 
       <button onclick="calculateBMI()">Calculate BMI</button>
@@ -241,44 +239,53 @@
   </footer>
 
   <script>
+    // Imperial is DEFAULT on page load
+    window.onload = function() {
+      setUnit('imperial');
+    };
+
     function setUnit(unit) {
-      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
+      // Update active button
+      document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(unit === 'metric' ? '.toggle-btn:first-child' : '.toggle-btn:last-child').classList.add('active');
 
       const cmInput = document.getElementById('height-cm');
       const imperialInputs = document.getElementById('imperial-inputs');
       const heightLabel = document.getElementById('height-label');
       const weightLabel = document.getElementById('weight-label');
+      const weightInput = document.getElementById('weight');
 
       if (unit === 'metric') {
         cmInput.style.display = 'block';
         imperialInputs.style.display = 'none';
         heightLabel.textContent = 'Height (cm)';
         weightLabel.textContent = 'Weight (kg)';
-        cmInput.placeholder = 'e.g. 175';
+        weightInput.placeholder = 'e.g. 70';
       } else {
         cmInput.style.display = 'none';
         imperialInputs.style.display = 'flex';
         heightLabel.textContent = 'Height';
         weightLabel.textContent = 'Weight (lbs)';
-        document.getElementById('weight').placeholder = 'e.g. 154';
+        weightInput.placeholder = 'e.g. 154';
       }
+
       document.getElementById('result').style.display = 'none';
     }
 
     function calculateBMI() {
+      const isMetric = document.querySelector('.toggle-btn.active').textContent.trim() === 'Metric';
       let height, weight = parseFloat(document.getElementById('weight').value);
 
-      if (document.querySelector('.toggle-btn.active').textContent === 'Metric') {
+      if (isMetric) {
         height = parseFloat(document.getElementById('height-cm').value);
-        if (!height || !weight) { alert("Please fill in all fields"); return; }
+        if (!height || !weight || height <= 0 || weight <= 0) return alert("Please enter valid values");
         var bmi = weight / ((height / 100) ** 2);
       } else {
         const feet = parseFloat(document.getElementById('feet').value) || 0;
         const inches = parseFloat(document.getElementById('inches').value) || 0;
-        height = (feet * 12) + inches;
-        if (!weight || height === 0) { alert("Please fill in all fields"); return; }
-        var bmi = (weight / (height * height)) * 703;
+        const totalInches = (feet * 12) + inches;
+        if (!weight || totalInches === 0 || weight <= 0) return alert("Please enter valid values");
+        var bmi = (weight / (totalInches * totalInches)) * 703;
       }
 
       bmi = bmi.toFixed(1);
