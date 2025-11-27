@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter • mendye.com</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Segoe UI',Arial,sans-serif;
+      background:linear-gradient(135deg,#77a7dd,#284beb,#2b7be4);
+      color:white;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:40px 20px;
+    }
+    header{
+      background:rgba(0,0,0,0.4);padding:20px 40px;backdrop-filter:blur(10px);
+      position:fixed;top:0;left:0;right:0;z-index:100;
+    }
+    .header-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:28px;font-weight:bold;color:#ffeb3b;text-decoration:none;text-shadow:0 0 10px rgba(255,235,59,0.5)}
+    nav a{color:white;text-decoration:none;margin-left:30px;font-weight:500}
+    nav a:hover{color:#ffeb3b}
+
+    h1{margin:110px 0 40px;font-size:52px;text-shadow:0 0 30px rgba(0,0,0,0.4);text-align:center}
+
+    .types{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:18px;
+      width:600px;max-width:95%;
+      margin-bottom:50px;
+    }
+    .type-btn{
+      padding:22px;font-size:20px;font-weight:bold;
+      background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.2);
+      border-radius:20px;cursor:pointer;transition:all .4s;text-align:center;
+    }
+    .type-btn:hover,.type-btn.active{
+      background:#ffeb3b;color:#0f5132;transform:translateY(-8px);
+      box-shadow:0 20px 40px rgba(255,235,59,0.4);
+    }
+
+    .converter{
+      background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);
+      border-radius:30px;padding:50px;width:600px;max-width:95%;
+      box-shadow:0 30px 80px rgba(0,0,0,0.5);border:2px solid rgba(255,255,255,0.1);
+      text-align:center;
+    }
+
+    input{
+      width:100%;padding:22px;font-size:28px;text-align:center;
+      border:none;border-radius:20px;background:rgba(255,255,255,0.2);
+      color:white;margin-bottom:30px;box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    }
+    input::placeholder{color:rgba(255,255,255,0.7)}
+
+    .convert-row{
+      display:flex;align-items:center;justify-content:center;gap:20px;margin:30px 0;
+    }
+    select{
+      flex:1;padding:20px;font-size:24px;text-align:center;
+      border:none;border-radius:20px;background:rgba(255,255,255,0.2);
+      color:white;box-shadow:0 8px 20px rgba(0,0,0,0.3);cursor:pointer;
+    }
+
+    .swap-btn{
+      width:70px;height:70px;background:#ffeb3b;color:#0f5132;
+      font-size:36px;font-weight:bold;border:none;border-radius:50%;
+      cursor:pointer;transition:all .4s;box-shadow:0 12px 30px rgba(0,0,0,0.5);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .swap-btn:hover{transform:scale(1.15) rotate(180deg);background:white}
+
+    .result{
+      background:rgba(0,0,0,0.4);padding:40px;font-size:56px;font-weight:bold;
+      border-radius:25px;color:#ffeb3b;min-height:150px;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:inset 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .back-home{margin-top:70px}
+    .back-home a{
+      padding:18px 50px;background:#ffeb3b;color:#0f5132;
+      font-size:22px;font-weight:bold;text-decoration:none;
+      border-radius:60px;box-shadow:0 12px 40px rgba(0,0,0,0.5);
+      transition:all .4s;display:inline-block;
+    }
+    .back-home a:hover{transform:translateY(-10px) scale(1.08);background:white}
+
+    @media(max-width:600px){
+      h1{font-size:42px}
+      .types{grid-template-columns:1fr 1fr}
+      .convert-row{flex-direction:column}
+      .swap-btn{margin:20px 0}
+      .result{font-size:44px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">mendye.com</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/tools">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <h1>Unit Converter</h1>
+
+  <div class="types">
+    <div class="type-btn active" onclick="setType('length')">Length</div>
+    <div class="type-btn" onclick="setType('weight')">Weight</div>
+    <div class="type-btn" onclick="setType('temperature')">Temperature</div>
+    <div class="type-btn" onclick="setType('volume')">Volume</div>
+    <div class="type-btn" onclick="setType('speed')">Speed</div>
+  </div>
+
+  <div class="converter">
+    <input type="number" id="input" placeholder="Enter value" oninput="calculate()">
+
+    <div class="convert-row">
+      <select id="from" onchange="calculate()"></select>
+      <button class="swap-btn" onclick="swap()">↔</button>
+      <select id="to" onchange="calculate()"></select>
+    </div>
+
+    <div class="result" id="result">0</div>
+  </div>
+
+  <div class="back-home">
+    <a href="/tools">Back to Tools</a>
+  </div>
+
+  <script>
+    const units = {
+      length:     ["Miles","Kilometers","Feet","Meters","Inches","Centimeters"],
+      weight:     ["Pounds","Kilograms","Ounces","Grams"],
+      temperature:["Celsius","Fahrenheit","Kelvin"],
+      volume:     ["Gallons (US)","Liters","Milliliters","Cups (US)"],
+      speed:      ["MPH","KM/H","Knots"]
+    };
+
+    const toBase = {
+      length: [1609.34, 1000, 0.3048, 1, 0.0254, 0.01],
+      weight: [453.59237, 1000, 28.349523, 1],
+      volume: [3.785411784, 1, 0.001, 0.2365882365],
+      speed:  [1.609344, 1, 1.852]
+    };
+
+    let current = "length";
+
+    function setType(type){
+      current = type;
+      document.querySelectorAll(".type-btn").forEach(b => b.classList.remove("active"));
+      event.target.classList.add("active");
+      populateUnits();
+      calculate();
+    }
+
+    function populateUnits(){
+      const from = document.getElementById("from");
+      const to = document.getElementById("to");
+      from.innerHTML = ""; to.innerHTML = "";
+
+      units[current].forEach(u => {
+        from.add(new Option(u));
+        to.add(new Option(u));
+      });
+      if (units[current].length > 1) to.selectedIndex = 1;
+    }
+
+    function swap(){
+      const from = document.getElementById("from");
+      const to = document.getElementById("to");
+      const tempIndex = from.selectedIndex;
+      from.selectedIndex = to.selectedIndex;
+      to.selectedIndex = tempIndex;
+      calculate();
+    }
+
+    function calculate(){
+      const input = parseFloat(document.getElementById("input").value) || 0;
+      const fromUnit = document.getElementById("from").value;
+      const toUnit = document.getElementById("to").value;
+
+      let result;
+
+      if (current === "temperature"){
+        let celsius = input;
+
+        // Convert from selected unit → Celsius
+        if (fromUnit === "Fahrenheit") celsius = (input - 32) * 5/9;
+        if (fromUnit === "Kelvin") celsius = input - 273.15;
+
+        // Convert Celsius → target unit
+        if (toUnit === "Fahrenheit") result = celsius * 9/5 + 32;
+        else if (toUnit === "Kelvin") result = celsius + 273.15;
+        else result = celsius; // Celsius to Celsius
+      }
+      else {
+        const fromFactor = toBase[current][units[current].indexOf(fromUnit)];
+        const toFactor = toBase[current][units[current].indexOf(toUnit)];
+        result = (input * fromFactor) / toFactor;
+      }
+
+      document.getElementById("result").textContent = 
+        Number(result.toFixed(8)).toString().replace(/\.?0+$/,"") || "0";
+    }
+
+    // Start
+    populateUnits();
+    calculate();
+  </script>
+</body>
+</html>
